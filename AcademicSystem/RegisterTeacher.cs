@@ -22,6 +22,7 @@ namespace AcademicSystem
         {
             // TODO: This line of code loads data into the 'academicDataSet.subject' table. You can move, or remove it, as needed.
             this.subjectTableAdapter.Fill(this.academicDataSet.subject);
+            //test
 
         }
 
