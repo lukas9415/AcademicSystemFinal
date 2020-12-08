@@ -115,5 +115,60 @@ namespace AcademicSystem
                 listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[3].ToString());
             }
         }
+
+        private void subjectBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupsBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subjectBindingSource2_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subjectBindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

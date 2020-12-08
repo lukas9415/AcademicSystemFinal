@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AcademicSystem.Backend.Repositories
 {
@@ -59,6 +60,29 @@ namespace AcademicSystem.Backend.Repositories
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 conn.Close();
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        public void RemoveGroup(int id)
+        {
+            try
+            {
+                string sql = "delete from groups " +
+                         "where id=@id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Group has been removed.");
             }
             catch (Exception exc)
             {

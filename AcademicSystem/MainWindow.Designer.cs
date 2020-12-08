@@ -239,9 +239,11 @@
             // 
             // removeGroupsToolStripMenuItem
             // 
+            this.removeGroupsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.removeGroupsToolStripMenuItem.Name = "removeGroupsToolStripMenuItem";
             this.removeGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeGroupsToolStripMenuItem.Text = "Remove Groups";
+            this.removeGroupsToolStripMenuItem.Click += new System.EventHandler(this.removeGroupsToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

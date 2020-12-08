@@ -104,6 +104,12 @@
     <Compile Include="RegisterTeacher.Designer.cs">
       <DependentUpon>RegisterTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="RemoveGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveGroup.Designer.cs">
+      <DependentUpon>RemoveGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="RemoveStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterTeacher.resx">
       <DependentUpon>RegisterTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveGroup.resx">
+      <DependentUpon>RemoveGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RemoveStudent.resx">
       <DependentUpon>RemoveStudent.cs</DependentUpon>
