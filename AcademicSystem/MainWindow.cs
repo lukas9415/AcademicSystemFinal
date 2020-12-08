@@ -119,5 +119,11 @@ namespace AcademicSystem
             RemoveTeacher a = new RemoveTeacher();
             a.ShowDialog();
         }
+
+        private void addNewGroupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddGroup a = new AddGroup();
+            a.ShowDialog();
+        }
     }
 }

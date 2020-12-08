@@ -48,6 +48,8 @@
             this.groupHere = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.welcomeText = new System.Windows.Forms.Label();
+            this.addNewGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,9 @@
             // 
             // addGroupToolStripMenuItem
             // 
+            this.addGroupToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewGroupToolStripMenuItem,
+            this.removeGroupsToolStripMenuItem});
             this.addGroupToolStripMenuItem.Name = "addGroupToolStripMenuItem";
             this.addGroupToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.addGroupToolStripMenuItem.Text = "Group Management";
@@ -224,6 +229,20 @@
             this.welcomeText.TabIndex = 3;
             this.welcomeText.Text = "Welcome to the system, below you can see your grades.";
             // 
+            // addNewGroupToolStripMenuItem
+            // 
+            this.addNewGroupToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.addNewGroupToolStripMenuItem.Name = "addNewGroupToolStripMenuItem";
+            this.addNewGroupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewGroupToolStripMenuItem.Text = "Add New Group";
+            this.addNewGroupToolStripMenuItem.Click += new System.EventHandler(this.addNewGroupToolStripMenuItem_Click);
+            // 
+            // removeGroupsToolStripMenuItem
+            // 
+            this.removeGroupsToolStripMenuItem.Name = "removeGroupsToolStripMenuItem";
+            this.removeGroupsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeGroupsToolStripMenuItem.Text = "Remove Groups";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,5 +288,7 @@
         private System.Windows.Forms.ToolStripMenuItem subjectManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewSubjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeSubjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewGroupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeGroupsToolStripMenuItem;
     }
 }

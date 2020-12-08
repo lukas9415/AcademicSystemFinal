@@ -46,5 +46,28 @@ namespace AcademicSystem.Backend.Repositories
                 conn.Close();
             }
         }
+
+
+        public void AddGroup(string name)
+        {
+            try
+            {
+                string sql = "insert into groups(name) " +
+                                   "values (@name)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@name", name);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }
