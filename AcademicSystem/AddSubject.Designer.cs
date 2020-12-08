@@ -38,17 +38,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.academicDataSet = new AcademicSystem.academicDataSet();
             this.subjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.subjectTableAdapter = new AcademicSystem.academicDataSetTableAdapters.subjectTableAdapter();
-            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupsTableAdapter = new AcademicSystem.academicDataSetTableAdapters.groupsTableAdapter();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.academicDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -141,17 +141,22 @@
             this.comboBox1.ValueMember = "id";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // groupsBindingSource
             // 
-            this.comboBox2.DataSource = this.subjectBindingSource;
-            this.comboBox2.DisplayMember = "teacher_id";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(104, 149);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(147, 21);
-            this.comboBox2.TabIndex = 4;
-            this.comboBox2.ValueMember = "teacher_id";
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.groupsBindingSource.DataMember = "groups";
+            this.groupsBindingSource.DataSource = this.academicDataSet;
+            this.groupsBindingSource.CurrentChanged += new System.EventHandler(this.groupsBindingSource_CurrentChanged);
+            // 
+            // academicDataSet
+            // 
+            this.academicDataSet.DataSetName = "academicDataSet";
+            this.academicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // subjectBindingSource
+            // 
+            this.subjectBindingSource.DataMember = "subject";
+            this.subjectBindingSource.DataSource = this.academicDataSet;
+            this.subjectBindingSource.CurrentChanged += new System.EventHandler(this.subjectBindingSource_CurrentChanged);
             // 
             // button1
             // 
@@ -174,39 +179,29 @@
             this.label6.Text = "Enter a new subject down below";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // academicDataSet
-            // 
-            this.academicDataSet.DataSetName = "academicDataSet";
-            this.academicDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // subjectBindingSource
-            // 
-            this.subjectBindingSource.DataMember = "subject";
-            this.subjectBindingSource.DataSource = this.academicDataSet;
-            this.subjectBindingSource.CurrentChanged += new System.EventHandler(this.subjectBindingSource_CurrentChanged);
-            // 
             // subjectTableAdapter
             // 
             this.subjectTableAdapter.ClearBeforeFill = true;
             // 
-            // groupsBindingSource
-            // 
-            this.groupsBindingSource.DataMember = "groups";
-            this.groupsBindingSource.DataSource = this.academicDataSet;
-            this.groupsBindingSource.CurrentChanged += new System.EventHandler(this.groupsBindingSource_CurrentChanged);
-            // 
             // groupsTableAdapter
             // 
             this.groupsTableAdapter.ClearBeforeFill = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 150);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(147, 20);
+            this.textBox2.TabIndex = 7;
             // 
             // AddSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 254);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
@@ -220,9 +215,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddSubject";
             this.Load += new System.EventHandler(this.AddSubject_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.academicDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subjectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,7 +234,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
         private academicDataSet academicDataSet;
@@ -247,5 +241,6 @@
         private academicDataSetTableAdapters.subjectTableAdapter subjectTableAdapter;
         private System.Windows.Forms.BindingSource groupsBindingSource;
         private academicDataSetTableAdapters.groupsTableAdapter groupsTableAdapter;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

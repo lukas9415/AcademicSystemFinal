@@ -33,7 +33,14 @@
             this.adminButton = new System.Windows.Forms.ToolStripMenuItem();
             this.addGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.studentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerNewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subjectManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teacherButton = new System.Windows.Forms.ToolStripMenuItem();
             this.studentButton = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,13 +48,6 @@
             this.groupHere = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.welcomeText = new System.Windows.Forms.Label();
-            this.registerNewStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subjectManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeSubjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,22 @@
             this.teacherManagementToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.teacherManagementToolStripMenuItem.Text = "Teacher Management";
             // 
+            // registerTeacherToolStripMenuItem
+            // 
+            this.registerTeacherToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.registerTeacherToolStripMenuItem.Name = "registerTeacherToolStripMenuItem";
+            this.registerTeacherToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.registerTeacherToolStripMenuItem.Text = "Register New Teacher";
+            this.registerTeacherToolStripMenuItem.Click += new System.EventHandler(this.registerTeacherToolStripMenuItem_Click);
+            // 
+            // removeTeacherToolStripMenuItem
+            // 
+            this.removeTeacherToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeTeacherToolStripMenuItem.Name = "removeTeacherToolStripMenuItem";
+            this.removeTeacherToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.removeTeacherToolStripMenuItem.Text = "Remove Teacher";
+            this.removeTeacherToolStripMenuItem.Click += new System.EventHandler(this.removeTeacherToolStripMenuItem_Click);
+            // 
             // studentManagementToolStripMenuItem
             // 
             this.studentManagementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -107,6 +123,47 @@
             this.studentManagementToolStripMenuItem.Name = "studentManagementToolStripMenuItem";
             this.studentManagementToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.studentManagementToolStripMenuItem.Text = "Student Management";
+            // 
+            // registerNewStudentToolStripMenuItem
+            // 
+            this.registerNewStudentToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.registerNewStudentToolStripMenuItem.Name = "registerNewStudentToolStripMenuItem";
+            this.registerNewStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.registerNewStudentToolStripMenuItem.Text = "Register New Student";
+            this.registerNewStudentToolStripMenuItem.Click += new System.EventHandler(this.registerNewStudentToolStripMenuItem_Click);
+            // 
+            // removeStudentToolStripMenuItem
+            // 
+            this.removeStudentToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeStudentToolStripMenuItem.Name = "removeStudentToolStripMenuItem";
+            this.removeStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.removeStudentToolStripMenuItem.Text = "Remove Student";
+            this.removeStudentToolStripMenuItem.Click += new System.EventHandler(this.removeStudentToolStripMenuItem_Click);
+            // 
+            // subjectManagementToolStripMenuItem
+            // 
+            this.subjectManagementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewSubjectToolStripMenuItem,
+            this.removeSubjectToolStripMenuItem});
+            this.subjectManagementToolStripMenuItem.Name = "subjectManagementToolStripMenuItem";
+            this.subjectManagementToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.subjectManagementToolStripMenuItem.Text = "Subject Management";
+            // 
+            // addNewSubjectToolStripMenuItem
+            // 
+            this.addNewSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.addNewSubjectToolStripMenuItem.Name = "addNewSubjectToolStripMenuItem";
+            this.addNewSubjectToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addNewSubjectToolStripMenuItem.Text = "Add New Subject";
+            this.addNewSubjectToolStripMenuItem.Click += new System.EventHandler(this.addNewSubjectToolStripMenuItem_Click);
+            // 
+            // removeSubjectToolStripMenuItem
+            // 
+            this.removeSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.removeSubjectToolStripMenuItem.Name = "removeSubjectToolStripMenuItem";
+            this.removeSubjectToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.removeSubjectToolStripMenuItem.Text = "Remove Subject";
+            this.removeSubjectToolStripMenuItem.Click += new System.EventHandler(this.removeSubjectToolStripMenuItem_Click);
             // 
             // teacherButton
             // 
@@ -166,62 +223,6 @@
             this.welcomeText.Size = new System.Drawing.Size(456, 20);
             this.welcomeText.TabIndex = 3;
             this.welcomeText.Text = "Welcome to the system, below you can see your grades.";
-            // 
-            // registerNewStudentToolStripMenuItem
-            // 
-            this.registerNewStudentToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.registerNewStudentToolStripMenuItem.Name = "registerNewStudentToolStripMenuItem";
-            this.registerNewStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.registerNewStudentToolStripMenuItem.Text = "Register New Student";
-            this.registerNewStudentToolStripMenuItem.Click += new System.EventHandler(this.registerNewStudentToolStripMenuItem_Click);
-            // 
-            // removeStudentToolStripMenuItem
-            // 
-            this.removeStudentToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.removeStudentToolStripMenuItem.Name = "removeStudentToolStripMenuItem";
-            this.removeStudentToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.removeStudentToolStripMenuItem.Text = "Remove Student";
-            this.removeStudentToolStripMenuItem.Click += new System.EventHandler(this.removeStudentToolStripMenuItem_Click);
-            // 
-            // registerTeacherToolStripMenuItem
-            // 
-            this.registerTeacherToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.registerTeacherToolStripMenuItem.Name = "registerTeacherToolStripMenuItem";
-            this.registerTeacherToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.registerTeacherToolStripMenuItem.Text = "Register New Teacher";
-            this.registerTeacherToolStripMenuItem.Click += new System.EventHandler(this.registerTeacherToolStripMenuItem_Click);
-            // 
-            // removeTeacherToolStripMenuItem
-            // 
-            this.removeTeacherToolStripMenuItem.Name = "removeTeacherToolStripMenuItem";
-            this.removeTeacherToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.removeTeacherToolStripMenuItem.Text = "Remove Teacher";
-            this.removeTeacherToolStripMenuItem.Click += new System.EventHandler(this.removeTeacherToolStripMenuItem_Click);
-            // 
-            // subjectManagementToolStripMenuItem
-            // 
-            this.subjectManagementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewSubjectToolStripMenuItem,
-            this.removeSubjectToolStripMenuItem});
-            this.subjectManagementToolStripMenuItem.Name = "subjectManagementToolStripMenuItem";
-            this.subjectManagementToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.subjectManagementToolStripMenuItem.Text = "Subject Management";
-            // 
-            // addNewSubjectToolStripMenuItem
-            // 
-            this.addNewSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.addNewSubjectToolStripMenuItem.Name = "addNewSubjectToolStripMenuItem";
-            this.addNewSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewSubjectToolStripMenuItem.Text = "Add New Subject";
-            this.addNewSubjectToolStripMenuItem.Click += new System.EventHandler(this.addNewSubjectToolStripMenuItem_Click);
-            // 
-            // removeSubjectToolStripMenuItem
-            // 
-            this.removeSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.removeSubjectToolStripMenuItem.Name = "removeSubjectToolStripMenuItem";
-            this.removeSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.removeSubjectToolStripMenuItem.Text = "Remove Subject";
-            this.removeSubjectToolStripMenuItem.Click += new System.EventHandler(this.removeSubjectToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

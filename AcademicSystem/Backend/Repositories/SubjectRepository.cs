@@ -185,5 +185,33 @@ namespace AcademicSystem.Backend.Repositories
                 conn.Close();
             }
         }
+
+        /*
+        public void CheckSubject(string id)
+        {
+            try
+            {
+                string sql = "select count(*) from subject " +
+                         "where id=@id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count == 0)
+                {
+                    throw new Exception("Subject does not exist!");
+                }
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        */
     }
 }

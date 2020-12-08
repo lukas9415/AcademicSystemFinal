@@ -1,4 +1,5 @@
 ﻿using AcademicSystem.Backend.Repositories;
+using LoginApp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -114,15 +115,28 @@ namespace AcademicSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SubjectRepository repository = new SubjectRepository();
-            int fid;
-            int fid1;
-            bool parseOK = Int32.TryParse(comboBox1.SelectedValue.ToString(), out fid);
-            bool parseOK1 = Int32.TryParse(comboBox2.SelectedValue.ToString(), out fid1);
-            repository.AddSubject(textBox1.Text, fid, fid1);
-            MessageBox.Show("Subject has been succesfully added.");
-            SubjectRefresh();
-            textBox1.Clear();
+            try
+            {
+                SubjectRepository repository = new SubjectRepository();
+                UsersRepository repository1 = new UsersRepository();
+                int fid;
+                int fid1;
+                bool parseOK = Int32.TryParse(comboBox1.SelectedValue.ToString(), out fid);
+                bool parseOK1 = Int32.TryParse(textBox2.Text.ToString(), out fid1);
+                repository1.CheckTeacher(textBox2.Text);
+                repository.AddSubject(textBox1.Text, fid, fid1);
+                MessageBox.Show("Subject has been succesfully added.");
+                SubjectRefresh();
+                textBox1.Clear();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error message: " + exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
