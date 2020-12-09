@@ -51,6 +51,8 @@
             this.addNewGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addGradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminWelcome = new System.Windows.Forms.Label();
+            this.teacherWelcome = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,7 +161,7 @@
             // 
             this.addNewSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.addNewSubjectToolStripMenuItem.Name = "addNewSubjectToolStripMenuItem";
-            this.addNewSubjectToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addNewSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewSubjectToolStripMenuItem.Text = "Add New Subject";
             this.addNewSubjectToolStripMenuItem.Click += new System.EventHandler(this.addNewSubjectToolStripMenuItem_Click);
             // 
@@ -167,7 +169,7 @@
             // 
             this.removeSubjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.removeSubjectToolStripMenuItem.Name = "removeSubjectToolStripMenuItem";
-            this.removeSubjectToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.removeSubjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeSubjectToolStripMenuItem.Text = "Remove Subject";
             this.removeSubjectToolStripMenuItem.Click += new System.EventHandler(this.removeSubjectToolStripMenuItem_Click);
             // 
@@ -252,14 +254,36 @@
             // 
             this.addGradesToolStripMenuItem.Name = "addGradesToolStripMenuItem";
             this.addGradesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addGradesToolStripMenuItem.Text = "Add Grades";
+            this.addGradesToolStripMenuItem.Text = "Grade Management";
             this.addGradesToolStripMenuItem.Click += new System.EventHandler(this.addGradesToolStripMenuItem_Click);
+            // 
+            // adminWelcome
+            // 
+            this.adminWelcome.AutoSize = true;
+            this.adminWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminWelcome.Location = new System.Drawing.Point(13, 58);
+            this.adminWelcome.Name = "adminWelcome";
+            this.adminWelcome.Size = new System.Drawing.Size(456, 20);
+            this.adminWelcome.TabIndex = 3;
+            this.adminWelcome.Text = "Welcome, Administrator, use functions in the menu strip";
+            // 
+            // teacherWelcome
+            // 
+            this.teacherWelcome.AutoSize = true;
+            this.teacherWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherWelcome.Location = new System.Drawing.Point(13, 58);
+            this.teacherWelcome.Name = "teacherWelcome";
+            this.teacherWelcome.Size = new System.Drawing.Size(414, 20);
+            this.teacherWelcome.TabIndex = 3;
+            this.teacherWelcome.Text = "Welcome, Teacher, use functions in the menu strip";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 450);
+            this.Controls.Add(this.teacherWelcome);
+            this.Controls.Add(this.adminWelcome);
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupHere);
@@ -303,5 +327,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeGroupsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addGradesToolStripMenuItem;
+        private System.Windows.Forms.Label adminWelcome;
+        private System.Windows.Forms.Label teacherWelcome;
     }
 }

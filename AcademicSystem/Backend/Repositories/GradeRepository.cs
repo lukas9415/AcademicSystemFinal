@@ -95,5 +95,33 @@ namespace AcademicSystem.Backend.Repositories
                 conn.Close();
             }
         }
+
+
+
+        public void AddGrade(string subject_id, string student_id, string grade, string group_id)
+        {
+            try
+            {
+                string sql = "insert into grade(subject_id, student_id, grade, group_id) " +
+                                   "values (@subject_id, @student_id, @grade, @group_id)";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@subject_id", subject_id);
+                cmd.Parameters.AddWithValue("@student_id", student_id);
+                cmd.Parameters.AddWithValue("@grade", grade);
+                cmd.Parameters.AddWithValue("@group_id", group_id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Grade succesfully added!");
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

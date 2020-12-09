@@ -25,6 +25,11 @@ namespace AcademicSystem
         SqlDataAdapter da1;
         DataSet ds1;
 
+
+        DataTable dt2;
+        SqlDataAdapter da2;
+        DataSet ds2;
+
         public AddGrades()
         {
             InitializeComponent();
@@ -32,9 +37,8 @@ namespace AcademicSystem
 
         private void AddGrades_Load(object sender, EventArgs e)
         {
-            this.groupsTableAdapter.Fill(this.academicDataSet.groups);
+            BindData();
 
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -48,7 +52,7 @@ namespace AcademicSystem
 
             conn.Open();
             SqlCommand cmd = new SqlCommand("select * from [user] where type = 'Student' and group_id=@group_id", conn);
-            
+
             int fid;
             bool parseOK = Int32.TryParse(comboBox1.SelectedValue.ToString(), out fid);
 
@@ -105,8 +109,44 @@ namespace AcademicSystem
                 listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[2].ToString());
                 listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[3].ToString());
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void BindData()
+        {
+            UsersRepository repository = new UsersRepository();
+            string teacher_id = repository.GetUserId(Form1.LoggedInUser.GetUserName());
 
 
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("select name, group_id from subject where teacher_id=@teacher_id", conn);
+            da2 = new SqlDataAdapter(cmd);
+            DataSet ds2 = new DataSet();
+            cmd.Parameters.AddWithValue("@teacher_id", teacher_id);
+            da2.Fill(ds2);
+            comboBox1.DataSource = ds2.Tables[0];
+            comboBox1.DisplayMember = "name";
+            comboBox1.ValueMember = "group_id";
+            comboBox1.Enabled = true;
+            this.comboBox1.SelectedIndex = 0;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SubjectRepository repository1 = new SubjectRepository();
+            UsersRepository repository = new UsersRepository();
+            GradeRepository repository2 = new GradeRepository();
+            string group_id = repository.GetUserGroup(textBox1.Text);
+            string teacher_id = repository.GetUserId(Form1.LoggedInUser.GetUserName());
+            string subject_id = repository1.FindSubjectId(teacher_id);
+
+            repository2.AddGrade(subject_id, textBox1.Text, textBox2.Text, group_id);
         }
     }
 }

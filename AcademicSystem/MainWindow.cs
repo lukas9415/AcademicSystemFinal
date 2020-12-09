@@ -34,6 +34,8 @@ namespace AcademicSystem
                 teacherButton.Visible = false;
                 groupHere.Visible = false;
                 welcomeText.Visible = false;
+                adminWelcome.Visible = true;
+                teacherWelcome.Visible = false;
             }
             if (Form1.LoggedInUser.GetUserType() == "Teacher")
             {
@@ -42,6 +44,8 @@ namespace AcademicSystem
                 teacherButton.Visible = true;
                 groupHere.Visible = false;
                 welcomeText.Visible = false;
+                adminWelcome.Visible = false;
+                teacherWelcome.Visible = true;
             }
             if (Form1.LoggedInUser.GetUserType() == "Student")
             {
@@ -49,6 +53,8 @@ namespace AcademicSystem
                 studentButton.Visible = true;
                 teacherButton.Visible = false;
                 welcomeText.Visible = true;
+                adminWelcome.Visible = false;
+                teacherWelcome.Visible = false;
 
                 UsersRepository repository3 = new UsersRepository();
                 string userid = repository3.GetUserId(Form1.LoggedInUser.GetUserName());

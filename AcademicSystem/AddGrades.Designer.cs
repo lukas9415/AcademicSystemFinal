@@ -69,9 +69,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(11, 103);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(250, 18);
+            this.label6.Size = new System.Drawing.Size(238, 18);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Enter a new subject down below";
+            this.label6.Text = "Enter a new grade down below";
             // 
             // button1
             // 
@@ -81,6 +81,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Add Grade";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // subjectBindingSource
             // 
@@ -111,6 +112,7 @@
             this.comboBox1.Size = new System.Drawing.Size(147, 21);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.ValueMember = "id";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox1
             // 

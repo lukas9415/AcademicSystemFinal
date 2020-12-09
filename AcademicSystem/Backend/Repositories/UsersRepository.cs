@@ -329,6 +329,35 @@ namespace LoginApp
             }
         }
 
+        public string GetUserGroup(string userid)
+        {
+            try
+            {
+                string group_id = "";
+                conn.Open();
+                string sql = "select id, name, surname, birthdate, username, password, type, group_id from [user] " +
+                         "where id=@id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader sReader;
+                cmd.Parameters.AddWithValue("@id", userid);
+                sReader = cmd.ExecuteReader();
+                if (sReader.Read())
+                {
+                    group_id = sReader["group_id"].ToString();
+                }
+                return group_id;
+
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
 
 
 
