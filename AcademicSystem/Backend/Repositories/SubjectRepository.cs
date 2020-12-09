@@ -186,6 +186,36 @@ namespace AcademicSystem.Backend.Repositories
             }
         }
 
+
+
+        public void CheckIfSubjectHasStudent(string group_id, string teacher_id)
+        {
+            try
+            {
+                string sql = "select count(*) from subject " +
+                         "where group_id=@group_id and teacher_id=@teacher_id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@group_id", group_id);
+                cmd.Parameters.AddWithValue("@teacher_id", teacher_id);
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count == 0)
+                {
+                    throw new Exception("Student does not exist in this subject! Check ID");
+                }
+
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         /*
         public void CheckSubject(string id)
         {

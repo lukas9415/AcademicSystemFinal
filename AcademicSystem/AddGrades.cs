@@ -139,14 +139,118 @@ namespace AcademicSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SubjectRepository repository1 = new SubjectRepository();
+            try
+            {
+                SubjectRepository repository1 = new SubjectRepository();
+                UsersRepository repository = new UsersRepository();
+                GradeRepository repository2 = new GradeRepository();
+                string group_id = repository.GetUserGroup(textBox1.Text);
+                string teacher_id = repository.GetUserId(Form1.LoggedInUser.GetUserName());
+                string subject_id = repository1.FindSubjectId(teacher_id);
+                repository2.CheckGrade(subject_id, textBox1.Text);
+                repository1.CheckIfSubjectHasStudent(group_id, teacher_id);
+                repository2.AddGrade(subject_id, textBox1.Text, textBox2.Text, group_id);
+                GradeRefresh();
+                textBox1.Clear();
+                textBox2.Clear();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error message: " + exc.Message);
+            }
+        }
+
+
+        public void GradeRefresh()
+        {
+            int fid;
+            bool parseOK = Int32.TryParse(comboBox1.SelectedValue.ToString(), out fid);
+
+            //Fill Grades------------------------------
+            listView2.Clear();
+            listView2.Columns.Add("ID", 40);
+            listView2.Columns.Add("Student ID", 70, HorizontalAlignment.Right);
+            listView2.Columns.Add("Grade", 70, HorizontalAlignment.Right);
+            listView2.Columns.Add("Group ID", 70, HorizontalAlignment.Right);
+            listView2.View = View.Details;
+
+            conn.Open();
+            SqlCommand cmd1 = new SqlCommand("select id, student_id, grade, group_id from grade where subject_id=@subject_id and group_id=@group_id", conn);
+
+
+
             UsersRepository repository = new UsersRepository();
-            GradeRepository repository2 = new GradeRepository();
-            string group_id = repository.GetUserGroup(textBox1.Text);
             string teacher_id = repository.GetUserId(Form1.LoggedInUser.GetUserName());
+
+            SubjectRepository repository1 = new SubjectRepository();
             string subject_id = repository1.FindSubjectId(teacher_id);
 
-            repository2.AddGrade(subject_id, textBox1.Text, textBox2.Text, group_id);
+            cmd1.Parameters.AddWithValue("@subject_id", subject_id);
+            cmd1.Parameters.AddWithValue("@group_id", fid);
+            da1 = new SqlDataAdapter(cmd1);
+            ds1 = new DataSet();
+            da1.Fill(ds1, "testTable1");
+            conn.Close();
+
+            dt1 = ds1.Tables["testTable1"];
+            int j;
+            for (j = 0; j <= dt1.Rows.Count - 1; j++)
+            {
+                listView2.Items.Add(dt1.Rows[j].ItemArray[0].ToString());
+                listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[1].ToString());
+                listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[2].ToString());
+                listView2.Items[j].SubItems.Add(dt1.Rows[j].ItemArray[3].ToString());
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            label6.Visible = true;
+            label3.Visible = true;
+            label5.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+            button1.Visible = true;
+
+            label8.Visible = false;
+            label4.Visible = false;
+            textBox3.Visible = false;
+            button3.Visible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            label8.Visible = true;
+            label4.Visible = true;
+            textBox3.Visible = true;
+            button3.Visible = true;
+
+            label6.Visible = false;
+            label3.Visible = false;
+            label5.Visible = false;
+            textBox1.Visible = false;
+            textBox2.Visible = false;
+            button1.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SubjectRepository repository1 = new SubjectRepository();
+                UsersRepository repository = new UsersRepository();
+                GradeRepository repository2 = new GradeRepository();
+                string group_id = repository.GetUserGroup(textBox1.Text);
+                string teacher_id = repository.GetUserId(Form1.LoggedInUser.GetUserName());
+                string subject_id = repository1.FindSubjectId(teacher_id);
+                repository2.CheckGradeExistence(subject_id, textBox3.Text);
+                repository2.RemoveGrade(textBox3.Text, subject_id);
+                GradeRefresh();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error message: " + exc.Message);
+            }
         }
     }
 }

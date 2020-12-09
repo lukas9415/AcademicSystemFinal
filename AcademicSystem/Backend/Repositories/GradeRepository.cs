@@ -123,5 +123,88 @@ namespace AcademicSystem.Backend.Repositories
                 conn.Close();
             }
         }
+
+
+        public void CheckGrade(string subject_id, string student_id)
+        {
+            try
+            {
+                string sql = "select count(*) from grade " +
+                         "where subject_id=@subject_id and student_id=@student_id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@subject_id", subject_id);
+                cmd.Parameters.AddWithValue("@student_id", student_id);
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count >= 1)
+                {
+                    throw new Exception("This student already has a grade from this subject!");
+                }
+
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        public void RemoveGrade(string student_id, string subject_id)
+        {
+            try
+            {
+                string sql = "delete from grade " +
+                         "where student_id=@student_id and subject_id=@subject_id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@student_id", student_id);
+                cmd.Parameters.AddWithValue("@subject_id", subject_id);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Grade has been removed.");
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        public void CheckGradeExistence(string subject_id, string student_id)
+        {
+            try
+            {
+                string sql = "select count(*) from grade " +
+                         "where subject_id=@subject_id and student_id=@student_id";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@subject_id", subject_id);
+                cmd.Parameters.AddWithValue("@student_id", student_id);
+                conn.Open();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count == 0)
+                {
+                    throw new Exception("This student does not have a grade.");
+                }
+
+            }
+            catch (Exception exc)
+            {
+                throw new Exception(exc.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
     }
 }
