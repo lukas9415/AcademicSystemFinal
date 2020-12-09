@@ -50,6 +50,7 @@
             this.welcomeText = new System.Windows.Forms.Label();
             this.addNewGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeGroupsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addGradesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,6 +173,8 @@
             // 
             // teacherButton
             // 
+            this.teacherButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addGradesToolStripMenuItem});
             this.teacherButton.Name = "teacherButton";
             this.teacherButton.Size = new System.Drawing.Size(94, 20);
             this.teacherButton.Text = "Teacher Menu";
@@ -245,6 +248,13 @@
             this.removeGroupsToolStripMenuItem.Text = "Remove Groups";
             this.removeGroupsToolStripMenuItem.Click += new System.EventHandler(this.removeGroupsToolStripMenuItem_Click);
             // 
+            // addGradesToolStripMenuItem
+            // 
+            this.addGradesToolStripMenuItem.Name = "addGradesToolStripMenuItem";
+            this.addGradesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addGradesToolStripMenuItem.Text = "Add Grades";
+            this.addGradesToolStripMenuItem.Click += new System.EventHandler(this.addGradesToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,5 +302,6 @@
         private System.Windows.Forms.ToolStripMenuItem removeSubjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewGroupToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeGroupsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addGradesToolStripMenuItem;
     }
 }
